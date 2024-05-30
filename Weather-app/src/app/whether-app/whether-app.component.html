@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="card text-white bg-primary mt-5" style="max-width: 20rem">
+      <div class="card-header text-center">
+        <h2>{{ city }}</h2>
+        <p><img src="{{ iconUrl }}" alt="weather image" /></p>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Summary : {{ summary }}</p>
+        <p class="card-text">
+          Temperature : {{ temperature }} °{{ unit == "metric" ? "C" : "F" }}
+        </p>
+        <p class="card-text">
+          Feels like : {{ feelsLikeTemp }} °{{ unit == "metric" ? "C" : "F" }}
+        </p>
+        <p class="card-text">Pressure : {{ pressure }} hPa</p>
+        <p class="card-text">Humidity : {{ humidity }}%</p>
+      </div>
+      <div class="card-footer bg-transparent border-success">
+        <!-- form for radio button  -->
+        <form class="myRadioButtons">
+          <label class="radio-inline">
+            <input
+              (change)="onChangeRadio()"
+              type="radio"
+              name="unitRaidoButtons"
+              [checked]="unit == 'imperial' ? true : false"
+            />
+            °F
+          </label>
+          <label class="radio-inline">
+            <input
+              (change)="onChangeRadio()"
+              type="radio"
+              name="unitRaidoButtons"
+            />°C
+          </label>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
