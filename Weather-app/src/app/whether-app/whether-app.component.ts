@@ -14,9 +14,10 @@ export class WhetherAppComponent implements OnInit {
   pressure: number = 0;
   summary: string = '';
   iconUrl: string = '';
-  city: string = 'Tabriz';
+  city: string = 'London';
   unit: string = 'metric';
-
+  windSpeed: number = 0;
+  descriptions: string = '';
   constructor(private WheatherService: WheatherService) {}
 
   ngOnInit(): void {
@@ -34,6 +35,8 @@ export class WhetherAppComponent implements OnInit {
         this.humidity = this.myWeather.main.humidity;
         this.pressure = this.myWeather.main.pressure;
         this.summary = this.myWeather.weather[0].main;
+        this.windSpeed = this.myWeather.wind.speed;
+        this.descriptions = this.myWeather.weather[0].description;
         this.iconUrl =
           'https://openweathermap.org/img/wn/' +
           this.myWeather.weather[0].icon +
